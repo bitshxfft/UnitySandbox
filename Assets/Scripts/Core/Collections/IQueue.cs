@@ -2,6 +2,8 @@
 {
 	public interface IQueue<T> : IContainer<T>
 	{
-		// #SD: TODO
+		void Push(T value);
+		T Peek();
+		T Pop();
 	}
 }

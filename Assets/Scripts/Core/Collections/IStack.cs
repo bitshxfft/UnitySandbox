@@ -2,6 +2,8 @@
 {
 	public interface IStack<T> : IContainer<T>
 	{
-		// #SD: TODO
+		void Push(T value);
+		T Peek();
+		T Pop();
 	}
 }

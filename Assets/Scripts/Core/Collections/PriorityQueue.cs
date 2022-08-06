@@ -2,13 +2,13 @@
 
 namespace Bitwise.Core.Collections
 {
-	public class FastQueue<T> : IQueue<T> where T : IComparable<T>
+	public class PriorityQueue<T> : IQueue<T> where T : IComparable<T>
 	{
-		private readonly FastList<T> _contents;
+		private FastList<T> _contents;
 
 		// ----------------------------------------------------------------------------
 
-		public FastQueue(int capacity)
+		public PriorityQueue(int capacity)
 		{
 			_contents = new FastList<T>(capacity, FastListPreferences.PreserveOrder);
 		}
@@ -20,15 +20,27 @@ namespace Bitwise.Core.Collections
 
 		public int Capacity => _contents.Capacity;
 
-		public void Clear() => _contents.Clear();
+		public void Clear()
+		{
+			_contents.Clear();
+		}
 
 		// ----------------------------------------------------------------------------
 		// IQueue
 
-		public void Push(T value) => _contents.Insert(value, 0);
+		public void Push(T value)
+		{
+			// #SD: TODO
+		}
 
-		public T Peek() => _contents[_contents.Last()];
+		public T Peek()
+		{
+			return _contents[_contents.Last()];
+		}
 
-		public T Pop() => _contents.RemoveAt(_contents.Last().Index);
+		public T Pop()
+		{
+			return _contents.RemoveAt(_contents.Last().Index);
+		}
 	}
 }

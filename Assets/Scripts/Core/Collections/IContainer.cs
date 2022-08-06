@@ -4,7 +4,6 @@
 	{
 		public int Count { get; }
 		public int Capacity { get; }
-		
-		// #SD: TODO
+		public void Clear();
 	}
 }
