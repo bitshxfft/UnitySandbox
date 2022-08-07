@@ -1,5 +1,7 @@
 ﻿using System;
 
+// #SD: TODO - Tests
+
 namespace Bitwise.Core.Collections
 {
 	public class FastQueue<T> : IQueue<T> where T : IComparable<T>

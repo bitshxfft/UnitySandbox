@@ -1,5 +1,7 @@
 ﻿using System;
 
+// #SD: TODO - Tests
+
 namespace Bitwise.Core.Collections
 {
 	public class FastStack<T> : IStack<T> where T : IComparable<T>

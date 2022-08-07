@@ -4,6 +4,7 @@ namespace Bitwise.Core.Collections
 {
 	public interface IList<T> : IIterable<T> where T : IComparable<T>
 	{
+		public new int Capacity { get; set; }
 		public T this[int index] { get; set; }
 		public void Add(T value);
 		public void AddRange(IIterable<T> values);

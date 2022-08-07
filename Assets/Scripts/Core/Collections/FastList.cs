@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 
+// #SD: TODO - Tests, ensure on par with List
+
 namespace Bitwise.Core.Collections
 {
 	[Serializable]
@@ -55,49 +57,36 @@ namespace Bitwise.Core.Collections
 				return;
 			}
 
-			ResetOffsets();
-
-			if (newCapacity < Capacity)
+			if (newCapacity < Count)
 			{
-				_contents.RemoveRange(newCapacity, Capacity - newCapacity);
+				throw new ArgumentOutOfRangeException($"[FastList::Resize] new capacity {newCapacity} is less than Count: {Count}");
+			}
+
+			int previousCapacity = Capacity;
+			if (newCapacity < previousCapacity)
+			{
+				// #SD: TODO
+				// shift contents into the elements that will remain
+
+				_contents.RemoveRange(newCapacity, previousCapacity - newCapacity);
+				_contents.Capacity = newCapacity;
 				Count = Mathf.Min(Count, Capacity);
 			}
 			else
 			{
-				for (int i = Capacity; i < newCapacity; ++i)
+				_contents.Capacity = newCapacity;
+				for (int i = 0; i < newCapacity - previousCapacity; ++i)
 				{
 					_contents.Add(default);
 				}
-			}
-		}
 
-		private void ResetOffsets()
-		{
-			if (Count == 0)
-			{
-				// nothing to reset
-				return;
+				// #SD: TODO
+				if (_lastIndex < _firstIndex)
+				{
+					// if we previously wrapped around the list, put everything that was wrapped into the newly allocated space
+					// (i.e. 0 to _lastIndex)
+				}
 			}
-
-			if (_firstIndex == 0)
-			{
-				// indices already mapped 1:1
-				return;
-			}
-
-			// #SD: TODO
-			for (int i = _firstIndex; i < Count; ++i)
-			{
-				//for (int j = i; j >= _firstIndex; --j)
-				//{
-				//	T temp = _contents[j - 1];
-				//	_contents[j - 1] = _contents[j];
-				//	_contents[j] = temp;
-				//}
-			}
-
-			_firstIndex = 0;
-			_lastIndex = Count - 1;
 		}
 
 		// ----------------------------------------------------------------------------
@@ -188,6 +177,8 @@ namespace Bitwise.Core.Collections
 			{
 				Resize(Count + 4);
 			}
+			
+			// #SD: TODO
 
 			return false;
 		}
@@ -245,10 +236,12 @@ namespace Bitwise.Core.Collections
 			}
 			else
 			{
+				// shift what was previously the last element in the list to the index that's being removed, and reduce size by 1
 				_contents[convertedIndex] = _contents[_lastIndex];
 				DecrementLastIndex();
 			}
 
+			--Count;
 			return removed;
 		}
 	}

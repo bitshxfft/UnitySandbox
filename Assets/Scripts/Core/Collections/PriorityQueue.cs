@@ -1,5 +1,7 @@
 ﻿using System;
 
+// #SD: TODO - Tests
+
 namespace Bitwise.Core.Collections
 {
 	public class PriorityQueue<T> : IQueue<T> where T : IComparable<T>
@@ -30,7 +32,16 @@ namespace Bitwise.Core.Collections
 
 		public void Push(T value)
 		{
-			// #SD: TODO
+			for (int i = 0; i < _contents.Count; ++i)
+			{
+				if (value.CompareTo(_contents[i]) <= 0)
+				{
+					_contents.Insert(value, i);
+					return;
+				}
+			}
+
+			_contents.Add(value);
 		}
 
 		public T Peek()
