@@ -1,6 +1,8 @@
-﻿namespace Bitwise.Core.Collections
+﻿using System;
+
+namespace Bitwise.Core.Collections
 {
-	public struct Iterator
+	public readonly struct Iterator : IEquatable<Iterator>
 	{
 		public int Index { get; }
 
@@ -25,5 +27,13 @@
 		public static bool operator>(Iterator original, Iterator other) => original.Index > other.Index;
 
 		public static bool operator>=(Iterator original, Iterator other) => original.Index >= other.Index;
+
+		// ----------------------------------------------------------------------------
+
+		public bool Equals(Iterator other) => Index == other.Index;
+
+		public override bool Equals(object obj) => obj is Iterator other && Equals(other);
+
+		public override int GetHashCode() => Index;
 	}
 }
