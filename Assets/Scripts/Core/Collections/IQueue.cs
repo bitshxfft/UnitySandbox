@@ -2,8 +2,8 @@
 {
 	public interface IQueue<T> : IContainer<T>
 	{
-		void Push(T value);
+		void Enqueue(T value);
 		T Peek();
-		T Pop();
+		T Dequeue();
 	}
 }

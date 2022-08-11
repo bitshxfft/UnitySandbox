@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 
-// #SD: TODO - Tests, ensure on par with List
-
 namespace Bitwise.Core.Collections
 {
 	[Serializable]
-	public class FastList<T> : IList<T> where T : IComparable<T>
+	public class FastList<T> : IList<T>
 	{
 		[SerializeField, ReadOnly] private List<T> _contents;
 		[SerializeField, ReadOnly] private int _firstIndex;
-		[SerializeField, ReadOnly] private int _lastIndex;
 		[SerializeField, ReadOnly] private FastListPreferences _preferences;
 
 		// ----------------------------------------------------------------------------
@@ -27,22 +24,27 @@ namespace Bitwise.Core.Collections
 
 		// ----------------------------------------------------------------------------
 
+		private int LastIndex =>
+			Capacity > 0
+				? (_firstIndex + (Count - 1)) % Capacity
+				: 0;
+
 		private void IncrementFirstIndex()
 		{
 			_firstIndex = (_firstIndex + 1) % Capacity;
 		}
 
-		private void DecrementLastIndex()
+		private void DecrementFirstIndex()
 		{
-			if (--_lastIndex < 0)
+			if (--_firstIndex < 0)
 			{
-				_lastIndex += Count;
+				_firstIndex += Capacity;
 			}
 		}
 
 		private int ConvertIndex(int index)
 		{
-			if (index < 0 || index >= Count)
+			if (index < 0)
 			{
 				throw new IndexOutOfRangeException($"[FastList::ConvertIndex] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
 			}
@@ -63,28 +65,47 @@ namespace Bitwise.Core.Collections
 			}
 
 			int previousCapacity = Capacity;
+			int previousLastIndex = LastIndex;
+
 			if (newCapacity < previousCapacity)
 			{
-				// #SD: TODO
-				// shift contents into the elements that will remain
+				for (int i = newCapacity; i < Count; ++i)
+				{
+					_contents[i % newCapacity] = _contents[i];
+				}
+
+				_firstIndex %= newCapacity;
 
 				_contents.RemoveRange(newCapacity, previousCapacity - newCapacity);
 				_contents.Capacity = newCapacity;
-				Count = Mathf.Min(Count, Capacity);
 			}
 			else
 			{
 				_contents.Capacity = newCapacity;
-				for (int i = 0; i < newCapacity - previousCapacity; ++i)
+				for (int i = previousCapacity; i < newCapacity; ++i)
 				{
 					_contents.Add(default);
 				}
 
-				// #SD: TODO
-				if (_lastIndex < _firstIndex)
+				// shift wrapped elements into new space
+				if (Count > 0 && _firstIndex > previousLastIndex)
 				{
-					// if we previously wrapped around the list, put everything that was wrapped into the newly allocated space
-					// (i.e. 0 to _lastIndex)
+					// [1]
+					// [2, X, X, 1]
+					// [3, X, 1, 2]
+					// [4, 1, 2, 3]
+
+					// [4, 1, 2, 3, X, X, X, X]
+					// previousCapacity = 4
+					// previousLastIndex = 0
+
+					// contents[4 + 0] = contents[0]
+
+					for (int i = 0; i <= previousLastIndex; ++i)
+					{
+						_contents[previousCapacity + i] = _contents[i];
+						_contents[i] = default;
+					}
 				}
 			}
 		}
@@ -96,14 +117,13 @@ namespace Bitwise.Core.Collections
 
 		public int Capacity
 		{
-			get => _contents.Capacity;
+			get => _contents.Count;
 			set => Resize(value);
 		}
 
 		public void Clear()
 		{
 			_firstIndex = 0;
-			_lastIndex = 0;
 			Count = 0;
 		}
 
@@ -112,8 +132,8 @@ namespace Bitwise.Core.Collections
 
 		public T this[Iterator iterator]
 		{
-			get => _contents[ConvertIndex(iterator.Index)];
-			set => _contents[ConvertIndex(iterator.Index)] = value;
+			get => this[iterator.Index];
+			set => this[iterator.Index] = value;
 		}
 
 		public Iterator First()
@@ -141,8 +161,24 @@ namespace Bitwise.Core.Collections
 
 		public T this[int index]
 		{
-			get => _contents[ConvertIndex(index)];
-			set => _contents[ConvertIndex(index)] = value;
+			get
+			{
+				if (index < 0 || index >= Count)
+				{
+					throw new IndexOutOfRangeException($"[FastList::[]::get] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
+				}
+
+				return _contents[ConvertIndex(index)];
+			}
+			set
+			{
+				if (index < 0 || index >= Count)
+				{
+					throw new IndexOutOfRangeException($"[FastList::[]::set] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
+				}
+
+				_contents[ConvertIndex(index)] = value;
+			}
 		}
 
 		public void Add(T value)
@@ -153,8 +189,7 @@ namespace Bitwise.Core.Collections
 			}
 
 			++Count;
-			_lastIndex = (_lastIndex + 1) % Capacity;
-			_contents[_lastIndex] = value;
+			_contents[LastIndex] = value;
 		}
 
 		public void AddRange(IIterable<T> values)
@@ -171,25 +206,56 @@ namespace Bitwise.Core.Collections
 			}
 		}
 
-		public bool Insert(T value, int index)
+		public void Insert(T value, int index)
 		{
 			if (Count == Capacity)
 			{
 				Resize(Count + 4);
 			}
-			
-			// #SD: TODO
 
-			return false;
+			if (index > Count)
+			{
+				throw new IndexOutOfRangeException($"[FastList::Insert] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
+			}
+			else if (index == Count)
+			{
+				Add(value);
+			}
+			else if ((_preferences & FastListPreferences.PreserveOrder) == FastListPreferences.PreserveOrder)
+			{
+				if (index == First().Index)
+				{
+					DecrementFirstIndex();
+					_contents[_firstIndex] = value;
+				}
+				else
+				{
+					for (int i = Count; i > index; --i)
+					{
+						_contents[ConvertIndex(i)] = _contents[ConvertIndex(i - 1)];
+					}
+
+					_contents[ConvertIndex(index)] = value;
+				}
+
+				++Count;
+			}
+			else
+			{
+				int convertedIndex = ConvertIndex(index);
+				++Count;
+				_contents[LastIndex] = _contents[convertedIndex];
+				_contents[convertedIndex] = value;
+			}
 		}
 
 		public bool Remove(T value)
 		{
-			for (Iterator i = First(); i <= Last(); ++i)
+			for (int i = 0, ic = Count; i < ic; ++i)
 			{
-				if (_contents[ConvertIndex(i.Index)].CompareTo(value) == 0)
+				if (_contents[ConvertIndex(i)].Equals(value))
 				{
-					RemoveAt(i.Index);
+					RemoveAt(i);
 					return true;
 				}
 			}
@@ -200,9 +266,9 @@ namespace Bitwise.Core.Collections
 		public int RemoveAll(T value)
 		{
 			int countRemoved = 0;
-			for (Iterator i = Last(); i >= Last(); --i)
+			for (Iterator i = Last(); i >= First(); --i)
 			{
-				if (_contents[ConvertIndex(i.Index)].CompareTo(value) == 0)
+				if (_contents[ConvertIndex(i.Index)].Equals(value))
 				{
 					RemoveAt(i.Index);
 					++countRemoved;
@@ -217,32 +283,49 @@ namespace Bitwise.Core.Collections
 			int convertedIndex = ConvertIndex(index);
 			T removed = _contents[convertedIndex];
 
-			if (index == First().Index)
+			if (Count <= index)
 			{
-				IncrementFirstIndex();
-			}
-			else if (index == Last().Index)
-			{
-				DecrementLastIndex();
+				throw new IndexOutOfRangeException($"[FastList::RemoveAt] removing index {index} from a FastList with Count: {Count}");
 			}
 			else if ((_preferences & FastListPreferences.PreserveOrder) == FastListPreferences.PreserveOrder)
 			{
-				for (int i = convertedIndex; i != _lastIndex; ++i)
+				if (index == First().Index)
 				{
-					_contents[i % Capacity] = _contents[(i + 1) % Capacity];
+					IncrementFirstIndex();
 				}
-
-				DecrementLastIndex();
+				else if (index == Last().Index)
+				{
+					// nothing to do here other than reduce Count by 1
+				}
+				else
+				{
+					for (int i = convertedIndex; i != LastIndex; i = (i + 1) % Capacity)
+					{
+						_contents[i] = _contents[(i + 1) % Capacity];
+					}
+				}
 			}
 			else
 			{
 				// shift what was previously the last element in the list to the index that's being removed, and reduce size by 1
-				_contents[convertedIndex] = _contents[_lastIndex];
-				DecrementLastIndex();
+				_contents[convertedIndex] = _contents[LastIndex];
 			}
 
 			--Count;
 			return removed;
+		}
+
+		public bool Contains(T value)
+		{
+			for (int i = 0, ic = Count; i < ic; ++i)
+			{
+				if (_contents[ConvertIndex(i)].Equals(value))
+				{
+					return true;
+				}
+			}
+
+			return false;
 		}
 	}
 }

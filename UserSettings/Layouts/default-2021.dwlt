@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Test Runner
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -45,9 +45,9 @@ MonoBehaviour:
     height: 427
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 15}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &3
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 98
+  controlID: 75
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -96,12 +96,13 @@ MonoBehaviour:
     height: 427
   m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 20}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 20}
+  - {fileID: 21}
+  - {fileID: 15}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 2
+  m_LastSelected: 0
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 63
+  controlID: 24
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,9 +174,9 @@ MonoBehaviour:
     height: 947
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 16}
+  - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &8
@@ -197,11 +198,11 @@ MonoBehaviour:
     y: 0
     width: 394
     height: 520
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 17}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &9
@@ -299,7 +300,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 62
+  controlID: 23
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -319,15 +320,1043 @@ MonoBehaviour:
     y: 0
     width: 1053
     height: 520
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 18}
   - {fileID: 19}
+  - {fileID: 20}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 394
+    y: 593
+    width: 1051
+    height: 406
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Spl:
+    ID: 120
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 252
+    - 84
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 336
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 1
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 0}
+    m_NewResultList: []
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories: []
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 14}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[UnitySandbox][suite]'
+      name: UnitySandbox
+      fullName: UnitySandbox
+      resultStatus: 2
+      duration: 0.2185749
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1027
+      uniqueId: '[Tests][C:/Dev/UnitySandbox/Library/ScriptAssemblies/Tests.dll][suite]'
+      name: Tests.dll
+      fullName: C:/Dev/UnitySandbox/Library/ScriptAssemblies/Tests.dll
+      resultStatus: 2
+      duration: 0.0705008
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[UnitySandbox][suite]'
+    - id: 1001
+      uniqueId: Tests.dll/[Tests][FastListTests][suite]
+      name: FastListTests
+      fullName: FastListTests
+      resultStatus: 1
+      duration: 11.220121
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1027
+      parentUniqueId: '[Tests][C:/Dev/UnitySandbox/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1012
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListAddGrowCapacityTest]
+      name: FastListAddGrowCapacityTest
+      fullName: FastListTests.FastListAddGrowCapacityTest
+      resultStatus: 1
+      duration: 0.0012115
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1022
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListAddRangeTest]
+      name: FastListAddRangeTest
+      fullName: FastListTests.FastListAddRangeTest
+      resultStatus: 1
+      duration: 0.0019715
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1029
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListAddRemoveAllowReorderTest]
+      name: FastListAddRemoveAllowReorderTest
+      fullName: FastListTests.FastListAddRemoveAllowReorderTest
+      resultStatus: 1
+      duration: 0.0010903
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1019
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListAddRemoveIndexAllowReorderTest]
+      name: FastListAddRemoveIndexAllowReorderTest
+      fullName: FastListTests.FastListAddRemoveIndexAllowReorderTest
+      resultStatus: 1
+      duration: 0.0007665
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1010
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListAddRemoveIndexPreserveOrderTest]
+      name: FastListAddRemoveIndexPreserveOrderTest
+      fullName: FastListTests.FastListAddRemoveIndexPreserveOrderTest
+      resultStatus: 1
+      duration: 0.0009716
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1014
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListAddRemovePreservedOrderTest]
+      name: FastListAddRemovePreservedOrderTest
+      fullName: FastListTests.FastListAddRemovePreservedOrderTest
+      resultStatus: 1
+      duration: 0.0008131
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1011
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListAddTest]
+      name: FastListAddTest
+      fullName: FastListTests.FastListAddTest
+      resultStatus: 1
+      duration: 0.0004745
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1022
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListAllowReorderStressTest]
+      name: FastListAllowReorderStressTest
+      fullName: FastListTests.FastListAllowReorderStressTest
+      resultStatus: 1
+      duration: 5.567235
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1003
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListCapacityTest]
+      name: FastListCapacityTest
+      fullName: FastListTests.FastListCapacityTest
+      resultStatus: 1
+      duration: 0.0004988
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1006
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListClearTest]
+      name: FastListClearTest
+      fullName: FastListTests.FastListClearTest
+      resultStatus: 1
+      duration: 0.0002456
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1020
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListContainsTest]
+      name: FastListContainsTest
+      fullName: FastListTests.FastListContainsTest
+      resultStatus: 1
+      duration: 0.0002026
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1002
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListCountTest]
+      name: FastListCountTest
+      fullName: FastListTests.FastListCountTest
+      resultStatus: 1
+      duration: 0.0002035
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1009
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListFirstIteratorTest]
+      name: FastListFirstIteratorTest
+      fullName: FastListTests.FastListFirstIteratorTest
+      resultStatus: 1
+      duration: 0.0001775
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1006
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListGetAtIndexTest]
+      name: FastListGetAtIndexTest
+      fullName: FastListTests.FastListGetAtIndexTest
+      resultStatus: 1
+      duration: 0.0002333
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1009
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListGetAtIndexThrowsTest]
+      name: FastListGetAtIndexThrowsTest
+      fullName: FastListTests.FastListGetAtIndexThrowsTest
+      resultStatus: 1
+      duration: 0.0037975
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1008
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListGetInvalidIndexThrowsTest]
+      name: FastListGetInvalidIndexThrowsTest
+      fullName: FastListTests.FastListGetInvalidIndexThrowsTest
+      resultStatus: 1
+      duration: 0.0002687
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1024
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListInsertAllowReorderTest]
+      name: FastListInsertAllowReorderTest
+      fullName: FastListTests.FastListInsertAllowReorderTest
+      resultStatus: 1
+      duration: 0.0005255
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1025
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListInsertInvalidIndexThrowsTest]
+      name: FastListInsertInvalidIndexThrowsTest
+      fullName: FastListTests.FastListInsertInvalidIndexThrowsTest
+      resultStatus: 1
+      duration: 0.0005534
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1023
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListInsertPreserveOrderTest]
+      name: FastListInsertPreserveOrderTest
+      fullName: FastListTests.FastListInsertPreserveOrderTest
+      resultStatus: 1
+      duration: 0.000241
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1007
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListIteratorTest]
+      name: FastListIteratorTest
+      fullName: FastListTests.FastListIteratorTest
+      resultStatus: 1
+      duration: 0.0009996
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1008
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListIteratorThrowsTest]
+      name: FastListIteratorThrowsTest
+      fullName: FastListTests.FastListIteratorThrowsTest
+      resultStatus: 1
+      duration: 0.0004397
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1010
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListLastIteratorTest]
+      name: FastListLastIteratorTest
+      fullName: FastListTests.FastListLastIteratorTest
+      resultStatus: 1
+      duration: 0.0002324
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1010
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListNextIteratorTest]
+      name: FastListNextIteratorTest
+      fullName: FastListTests.FastListNextIteratorTest
+      resultStatus: 1
+      duration: 0.0003075
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1021
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListPreserveOrderStressTest]
+      name: FastListPreserveOrderStressTest
+      fullName: FastListTests.FastListPreserveOrderStressTest
+      resultStatus: 1
+      duration: 5.6079483
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1011
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListPreviousIteratorTest]
+      name: FastListPreviousIteratorTest
+      fullName: FastListTests.FastListPreviousIteratorTest
+      resultStatus: 1
+      duration: 0.0006322
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1035
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveAllAllowReorderTest]
+      name: FastListRemoveAllAllowReorderTest
+      fullName: FastListTests.FastListRemoveAllAllowReorderTest
+      resultStatus: 1
+      duration: 0.0005272
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1027
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveAllowReorderTest]
+      name: FastListRemoveAllowReorderTest
+      fullName: FastListTests.FastListRemoveAllowReorderTest
+      resultStatus: 1
+      duration: 0.0036483
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1017
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveAllPreserveOrderTest]
+      name: FastListRemoveAllPreserveOrderTest
+      fullName: FastListTests.FastListRemoveAllPreserveOrderTest
+      resultStatus: 1
+      duration: 0.0002398
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1037
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveAtAllowReorderTest]
+      name: FastListRemoveAtAllowReorderTest
+      fullName: FastListTests.FastListRemoveAtAllowReorderTest
+      resultStatus: 1
+      duration: 0.000078
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1019
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveAtInvalidIndexThrowsTest]
+      name: FastListRemoveAtInvalidIndexThrowsTest
+      fullName: FastListTests.FastListRemoveAtInvalidIndexThrowsTest
+      resultStatus: 1
+      duration: 0.0002556
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1018
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveAtPreserveOrderTest]
+      name: FastListRemoveAtPreserveOrderTest
+      fullName: FastListTests.FastListRemoveAtPreserveOrderTest
+      resultStatus: 1
+      duration: 0.0002236
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1033
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveMultipleAllowReorderTest]
+      name: FastListRemoveMultipleAllowReorderTest
+      fullName: FastListTests.FastListRemoveMultipleAllowReorderTest
+      resultStatus: 1
+      duration: 0.0002349
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1016
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveMultiplePreserveOrderTest]
+      name: FastListRemoveMultiplePreserveOrderTest
+      fullName: FastListTests.FastListRemoveMultiplePreserveOrderTest
+      resultStatus: 1
+      duration: 0.00024
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1013
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemovePreserveOrderTest]
+      name: FastListRemovePreserveOrderTest
+      fullName: FastListTests.FastListRemovePreserveOrderTest
+      resultStatus: 1
+      duration: 0.0001987
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1031
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveSingleAllowReorderTest]
+      name: FastListRemoveSingleAllowReorderTest
+      fullName: FastListTests.FastListRemoveSingleAllowReorderTest
+      resultStatus: 1
+      duration: 0.0002156
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1030
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListRemoveSinglePreserveOrderTest]
+      name: FastListRemoveSinglePreserveOrderTest
+      fullName: FastListTests.FastListRemoveSinglePreserveOrderTest
+      resultStatus: 1
+      duration: 0.0002228
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1007
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListSetAtIndexTest]
+      name: FastListSetAtIndexTest
+      fullName: FastListTests.FastListSetAtIndexTest
+      resultStatus: 1
+      duration: 0.0004189
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1004
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListSetCapacityTest]
+      name: FastListSetCapacityTest
+      fullName: FastListTests.FastListSetCapacityTest
+      resultStatus: 1
+      duration: 0.0001596
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1005
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListSetInvalidCapacityThrowsTest]
+      name: FastListSetInvalidCapacityThrowsTest
+      fullName: FastListTests.FastListSetInvalidCapacityThrowsTest
+      resultStatus: 1
+      duration: 0.0003125
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1009
+      uniqueId: Tests.dll/FastListTests/[Tests][FastListTests.FastListSetInvalidIndexThrowsTest]
+      name: FastListSetInvalidIndexThrowsTest
+      fullName: FastListTests.FastListSetInvalidIndexThrowsTest
+      resultStatus: 1
+      duration: 0.0002237
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][FastListTests][suite]
+    - id: 1021
+      uniqueId: Tests.dll/[Tests][FastQueueTests][suite]
+      name: FastQueueTests
+      fullName: FastQueueTests
+      resultStatus: 2
+      duration: 0.0654493
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1027
+      parentUniqueId: '[Tests][C:/Dev/UnitySandbox/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1044
+      uniqueId: Tests.dll/FastQueueTests/[Tests][FastQueueTests.FastQueueCapacityTest]
+      name: FastQueueCapacityTest
+      fullName: FastQueueTests.FastQueueCapacityTest
+      resultStatus: 2
+      duration: 0.0388517
+      messages: "  Expected: 8\r\n  But was:  6\r\n"
+      output: 
+      stacktrace: 'at FastQueueTests.FastQueueCapacityTest () [0x000af] in C:\Dev\UnitySandbox\Assets\Tests\FastQueueTests.cs:79
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1042
+      parentUniqueId: Tests.dll/[Tests][FastQueueTests][suite]
+    - id: 1045
+      uniqueId: Tests.dll/FastQueueTests/[Tests][FastQueueTests.FastQueueClearTest]
+      name: FastQueueClearTest
+      fullName: FastQueueTests.FastQueueClearTest
+      resultStatus: 1
+      duration: 0.0021037
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1042
+      parentUniqueId: Tests.dll/[Tests][FastQueueTests][suite]
+    - id: 1043
+      uniqueId: Tests.dll/FastQueueTests/[Tests][FastQueueTests.FastQueueCountTest]
+      name: FastQueueCountTest
+      fullName: FastQueueTests.FastQueueCountTest
+      resultStatus: 2
+      duration: 0.0017412
+      messages: 'System.ArgumentOutOfRangeException : Index was out of range. Must
+        be non-negative and less than the size of the collection.
+
+        Parameter
+        name: index'
+      output: 
+      stacktrace: "  at System.Collections.Generic.List`1[T].set_Item (System.Int32
+        index, T value) [0x00009] in <d4cde64232cf45659d86aafa597faa77>:0 \r\n  at
+        Bitwise.Core.Collections.FastList`1[T].Resize (System.Int32 newCapacity)
+        [0x00125] in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastList.cs:95
+        \r\n  at Bitwise.Core.Collections.FastList`1[T].Insert (T value, System.Int32
+        index) [0x00014] in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastList.cs:202
+        \r\n  at Bitwise.Core.Collections.FastQueue`1[T].Enqueue (T value) [0x00000]
+        in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastQueue.cs:30
+        \r\n  at FastQueueTests.FastQueueCountTest () [0x00119] in C:\\Dev\\UnitySandbox\\Assets\\Tests\\FastQueueTests.cs:29
+        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x0006a] in <d4cde64232cf45659d86aafa597faa77>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1042
+      parentUniqueId: Tests.dll/[Tests][FastQueueTests][suite]
+    - id: 1023
+      uniqueId: Tests.dll/[Tests][FastStackTests][suite]
+      name: FastStackTests
+      fullName: FastStackTests
+      resultStatus: 1
+      duration: 0.0557709
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1027
+      parentUniqueId: '[Tests][C:/Dev/UnitySandbox/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1024
+      uniqueId: Tests.dll/FastStackTests/[Tests][FastStackTests.NewFastStackTest]
+      name: NewFastStackTest
+      fullName: FastStackTests.NewFastStackTest
+      resultStatus: 1
+      duration: 0.0008217
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1023
+      parentUniqueId: Tests.dll/[Tests][FastStackTests][suite]
+    - id: 1025
+      uniqueId: Tests.dll/[Tests][PriorityQueueTests][suite]
+      name: PriorityQueueTests
+      fullName: PriorityQueueTests
+      resultStatus: 1
+      duration: 0.0135251
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1027
+      parentUniqueId: '[Tests][C:/Dev/UnitySandbox/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1026
+      uniqueId: Tests.dll/PriorityQueueTests/[Tests][PriorityQueueTests.NewPriorityQueueTest]
+      name: NewPriorityQueueTest
+      fullName: PriorityQueueTests.NewPriorityQueueTest
+      resultStatus: 1
+      duration: 0.000355
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1025
+      parentUniqueId: Tests.dll/[Tests][PriorityQueueTests][suite]
+    m_ResultText: "FastQueueCountTest (0.002s)\n---\nSystem.ArgumentOutOfRangeException
+      : Index was out of range. Must be non-negative and less than the size of the
+      collection.\r\nParameter name: index\n---\nat System.Collections.Generic.List`1[T].set_Item
+      (System.Int32 index, T value) [0x00009] in <d4cde64232cf45659d86aafa597faa77>:0
+      \r\n  at Bitwise.Core.Collections.FastList`1[T].Resize (System.Int32 newCapacity)
+      [0x00125] in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastList.cs:95
+      \r\n  at Bitwise.Core.Collections.FastList`1[T].Insert (T value, System.Int32
+      index) [0x00014] in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastList.cs:202
+      \r\n  at Bitwise.Core.Collections.FastQueue`1[T].Enqueue (T value) [0x00000]
+      in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastQueue.cs:30
+      \r\n  at FastQueueTests.FastQueueCountTest () [0x00119] in C:\\Dev\\UnitySandbox\\Assets\\Tests\\FastQueueTests.cs:29
+      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x0006a] in <d4cde64232cf45659d86aafa597faa77>:0"
+    m_ResultStacktrace: "  at System.Collections.Generic.List`1[T].set_Item (System.Int32
+      index, T value) [0x00009] in <d4cde64232cf45659d86aafa597faa77>:0 \r\n  at
+      Bitwise.Core.Collections.FastList`1[T].Resize (System.Int32 newCapacity) [0x00125]
+      in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastList.cs:95
+      \r\n  at Bitwise.Core.Collections.FastList`1[T].Insert (T value, System.Int32
+      index) [0x00014] in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastList.cs:202
+      \r\n  at Bitwise.Core.Collections.FastQueue`1[T].Enqueue (T value) [0x00000]
+      in C:\\Dev\\UnitySandbox\\Assets\\Scripts\\Core\\Collections\\FastQueue.cs:30
+      \r\n  at FastQueueTests.FastQueueCountTest () [0x00119] in C:\\Dev\\UnitySandbox\\Assets\\Tests\\FastQueueTests.cs:29
+      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x0006a] in <d4cde64232cf45659d86aafa597faa77>:0 "
+    m_TestListState:
+      scrollPos: {x: 0, y: 536}
+      m_SelectedIDs: 8cf25135
+      m_LastClickedID: 894562956
+      m_ExpandedIDs: 295cdeae3be693bd54b66fd82c8835ed9166dbfa7885ce46ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,7 +1420,7 @@ MonoBehaviour:
   m_CurrentEditor: 0
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,7 +1474,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 8a570000
     m_LastClickedID: 22410
-    m_ExpandedIDs: 000000007e49000080490000824900008449000086490000
+    m_ExpandedIDs: 000000008c4900008e490000904900009249000094490000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -473,7 +1502,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000007e49000080490000824900008449000086490000
+    m_ExpandedIDs: ffffffff000000008c4900008e490000904900009249000094490000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -529,7 +1558,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,7 +1599,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -603,7 +1632,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 36fbffff
+      m_ExpandedIDs: 6cd2ffff48d8ffffd8d8ffff02dafffffadaffff5adbffff78dcffffe0dcffff40ddffffa0ddffff00deffff60deffffc4deffff24dfffffc0e0ffff44e1ffff78e2ffff68e3ffffc8e3ffff28e4ffff88e4ffffe8e4ffff48e5ffffeee6ffff4ee7ffffaee7ffff1eeaffff06ebffff6aebffff52ecffffb2ecffff1eedffff86edffff16f0ffff5ef4ffff7af5ffffdef5ffff52f6ffffd6f8ffff36fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -627,7 +1656,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -932,7 +1961,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &19
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1024,7 +2053,7 @@ MonoBehaviour:
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &20
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}

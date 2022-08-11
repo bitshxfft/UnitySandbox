@@ -1,10 +1,8 @@
 ﻿using System;
 
-// #SD: TODO - Tests
-
 namespace Bitwise.Core.Collections
 {
-	public class FastQueue<T> : IQueue<T> where T : IComparable<T>
+	public class FastQueue<T> : IQueue<T>
 	{
 		private readonly FastList<T> _contents;
 
@@ -27,10 +25,26 @@ namespace Bitwise.Core.Collections
 		// ----------------------------------------------------------------------------
 		// IQueue
 
-		public void Push(T value) => _contents.Insert(value, 0);
+		public void Enqueue(T value) => _contents.Add(value);
 
-		public T Peek() => _contents[_contents.Last()];
+		public T Peek()
+		{
+			if (Count == 0)
+			{
+				throw new InvalidOperationException("[FastQueue::Peek] FastQueue is empty, nothing to Peek");
+			}
+			
+			return _contents[_contents.First()];
+		}
 
-		public T Pop() => _contents.RemoveAt(_contents.Last().Index);
+		public T Dequeue()
+		{
+			if (Count == 0)
+			{
+				throw new InvalidOperationException("[FastQueue::Dequeue] FastQueue is empty, nothing to Dequeue");
+			}
+			
+			return _contents.RemoveAt(_contents.First().Index);
+		}
 	}
 }

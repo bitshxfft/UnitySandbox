@@ -1,7 +1,5 @@
 ﻿using System;
 
-// #SD: TODO - Tests
-
 namespace Bitwise.Core.Collections
 {
 	public class PriorityQueue<T> : IQueue<T> where T : IComparable<T>
@@ -30,7 +28,7 @@ namespace Bitwise.Core.Collections
 		// ----------------------------------------------------------------------------
 		// IQueue
 
-		public void Push(T value)
+		public void Enqueue(T value)
 		{
 			for (int i = 0; i < _contents.Count; ++i)
 			{
@@ -46,12 +44,22 @@ namespace Bitwise.Core.Collections
 
 		public T Peek()
 		{
-			return _contents[_contents.Last()];
+			if (Count == 0)
+			{
+				throw new InvalidOperationException("[PriorityQueue::Peek] PriorityQueue is empty, nothing to Peek");
+			}
+
+			return _contents[_contents.First()];
 		}
 
-		public T Pop()
+		public T Dequeue()
 		{
-			return _contents.RemoveAt(_contents.Last().Index);
+			if (Count == 0)
+			{
+				throw new InvalidOperationException("[PriorityQueue::Dequeue] PriorityQueue is empty, nothing to Dequeue");
+			}
+
+			return _contents.RemoveAt(_contents.First().Index);
 		}
 	}
 }
