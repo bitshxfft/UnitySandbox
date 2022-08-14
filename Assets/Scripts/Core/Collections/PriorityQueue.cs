@@ -4,13 +4,13 @@ namespace Bitwise.Core.Collections
 {
 	public class PriorityQueue<T> : IQueue<T> where T : IComparable<T>
 	{
-		private FastList<T> _contents;
+		private Vector<T> _contents;
 
 		// ----------------------------------------------------------------------------
 
 		public PriorityQueue(int capacity)
 		{
-			_contents = new FastList<T>(capacity, FastListPreferences.PreserveOrder);
+			_contents = new Vector<T>(capacity, VectorPreferences.PreserveOrder);
 		}
 
 		// ----------------------------------------------------------------------------

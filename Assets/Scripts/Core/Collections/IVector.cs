@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Bitwise.Core.Collections
+﻿namespace Bitwise.Core.Collections
 {
-	public interface IList<T> : IIterable<T>
+	public interface IVector<T> : IIterable<T>
 	{
 		public new int Capacity { get; set; }
 		public T this[int index] { get; set; }

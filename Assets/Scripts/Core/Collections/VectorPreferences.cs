@@ -3,7 +3,7 @@
 namespace Bitwise.Core.Collections
 {
 	[Flags]
-	public enum FastListPreferences
+	public enum VectorPreferences
 	{
 		None = 0,
 		PreserveOrder = 1 << 0,

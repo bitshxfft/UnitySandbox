@@ -6,15 +6,15 @@ using UnityEngine;
 namespace Bitwise.Core.Collections
 {
 	[Serializable]
-	public class FastList<T> : IList<T>
+	public class Vector<T> : IVector<T>
 	{
 		[SerializeField, ReadOnly] private List<T> _contents;
 		[SerializeField, ReadOnly] private int _firstIndex;
-		[SerializeField, ReadOnly] private FastListPreferences _preferences;
+		[SerializeField, ReadOnly] private VectorPreferences _preferences;
 
 		// ----------------------------------------------------------------------------
 
-		public FastList(int initialCapacity = 4, FastListPreferences preferences = FastListPreferences.None)
+		public Vector(int initialCapacity = 4, VectorPreferences preferences = VectorPreferences.None)
 		{
 			_contents = new List<T>(4);
 			_preferences = preferences;
@@ -46,7 +46,7 @@ namespace Bitwise.Core.Collections
 		{
 			if (index < 0)
 			{
-				throw new IndexOutOfRangeException($"[FastList::ConvertIndex] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
+				throw new IndexOutOfRangeException($"[Vector::ConvertIndex] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
 			}
 
 			return (_firstIndex + index) % Capacity;
@@ -61,7 +61,7 @@ namespace Bitwise.Core.Collections
 
 			if (newCapacity < Count)
 			{
-				throw new ArgumentOutOfRangeException($"[FastList::Resize] new capacity {newCapacity} is less than Count: {Count}");
+				throw new ArgumentOutOfRangeException($"[Vector::Resize] new capacity {newCapacity} is less than Count: {Count}");
 			}
 
 			int previousCapacity = Capacity;
@@ -157,7 +157,7 @@ namespace Bitwise.Core.Collections
 		}
 
 		// ----------------------------------------------------------------------------
-		// IList
+		// IVector
 
 		public T this[int index]
 		{
@@ -165,7 +165,7 @@ namespace Bitwise.Core.Collections
 			{
 				if (index < 0 || index >= Count)
 				{
-					throw new IndexOutOfRangeException($"[FastList::[]::get] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
+					throw new IndexOutOfRangeException($"[Vector::[]::get] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
 				}
 
 				return _contents[ConvertIndex(index)];
@@ -174,7 +174,7 @@ namespace Bitwise.Core.Collections
 			{
 				if (index < 0 || index >= Count)
 				{
-					throw new IndexOutOfRangeException($"[FastList::[]::set] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
+					throw new IndexOutOfRangeException($"[Vector::[]::set] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
 				}
 
 				_contents[ConvertIndex(index)] = value;
@@ -215,13 +215,13 @@ namespace Bitwise.Core.Collections
 
 			if (index > Count)
 			{
-				throw new IndexOutOfRangeException($"[FastList::Insert] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
+				throw new IndexOutOfRangeException($"[Vector::Insert] invalid index: {index}. Count: {Count}, Capacity: {Capacity}");
 			}
 			else if (index == Count)
 			{
 				Add(value);
 			}
-			else if ((_preferences & FastListPreferences.PreserveOrder) == FastListPreferences.PreserveOrder)
+			else if ((_preferences & VectorPreferences.PreserveOrder) == VectorPreferences.PreserveOrder)
 			{
 				if (index == First().Index)
 				{
@@ -285,9 +285,9 @@ namespace Bitwise.Core.Collections
 
 			if (Count <= index)
 			{
-				throw new IndexOutOfRangeException($"[FastList::RemoveAt] removing index {index} from a FastList with Count: {Count}");
+				throw new IndexOutOfRangeException($"[Vector::RemoveAt] removing index {index} from a Vector with Count: {Count}");
 			}
-			else if ((_preferences & FastListPreferences.PreserveOrder) == FastListPreferences.PreserveOrder)
+			else if ((_preferences & VectorPreferences.PreserveOrder) == VectorPreferences.PreserveOrder)
 			{
 				if (index == First().Index)
 				{
@@ -307,7 +307,7 @@ namespace Bitwise.Core.Collections
 			}
 			else
 			{
-				// shift what was previously the last element in the list to the index that's being removed, and reduce size by 1
+				// shift what was previously the last element in the vector to the index that's being removed, and reduce size by 1
 				_contents[convertedIndex] = _contents[LastIndex];
 			}
 

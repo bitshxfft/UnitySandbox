@@ -4,13 +4,13 @@ namespace Bitwise.Core.Collections
 {
 	public class FastStack<T> : IStack<T>
 	{
-		private readonly FastList<T> _contents;
+		private readonly Vector<T> _contents;
 
 		// ----------------------------------------------------------------------------
 
 		public FastStack(int capacity)
 		{
-			_contents = new FastList<T>(capacity, FastListPreferences.PreserveOrder);
+			_contents = new Vector<T>(capacity, VectorPreferences.PreserveOrder);
 		}
 
 		// ----------------------------------------------------------------------------
